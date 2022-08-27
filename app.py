@@ -8,9 +8,9 @@ main_projects = [
          'descr': 'Simple platformer with elements of bullet hell',
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
                    'img': '/images/github.png'}]},
-        {'title': 'Platformetic', 'image': '/images/platformetic.png',
-         'descr': 'Simple platformer with elements of bullet hell',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
+        {'title': 'Dungetic', 'image': '/images/dungetic.png',
+         'descr': 'Rogue-like game',
+         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/Dungetic',
                    'img': '/images/github.png'}]}
     ],
 ]
@@ -21,17 +21,17 @@ all_projects = [
          'descr': 'Simple platformer with elements of bullet hell',
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
                    'img': '/images/github.png'}]},
+        {'title': 'Dungetic', 'image': '/images/dungetic.png',
+         'descr': 'Rogue-like game',
+         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/Dungetic',
+                   'img': '/images/github.png'}]},
         {'title': 'Platformetic', 'image': '/images/platformetic.png',
          'descr': 'Simple platformer with elements of bullet hell',
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                   'img': '/images/github.png'}]},
-         {'title': 'Platformetic', 'image': '/images/platformetic.png',
-          'descr': 'Simple platformer with elements of bullet hell',
-          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                    'img': '/images/github.png'}]}
-     ],
+                   'img': '/images/github.png'}]}
+    ],
 
-[
+    [
         {'title': 'Platformetic', 'image': '/images/platformetic.png',
          'descr': 'Simple platformer with elements of bullet hell',
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
@@ -40,21 +40,24 @@ all_projects = [
          'descr': 'Simple platformer with elements of bullet hell',
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
                    'img': '/images/github.png'}]},
-         {'title': 'Platformetic', 'image': '/images/platformetic.png',
-          'descr': 'Simple platformer with elements of bullet hell',
-          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                    'img': '/images/github.png'}]}
-     ],
+        {'title': 'Platformetic', 'image': '/images/platformetic.png',
+         'descr': 'Simple platformer with elements of bullet hell',
+         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
+                   'img': '/images/github.png'}]}
+    ],
 
 ]
+
 
 @app.route('/')
 def main_page():  # put application's code here
     return render_template('main_page.html', title='Main page', projects=main_projects)
 
+
 @app.route('/projects')
 def project_list():  # put application's code here
     return render_template('projects.html', title='Main page', projects=all_projects)
+
 
 if __name__ == '__main__':
     app.run()

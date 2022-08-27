@@ -8,7 +8,7 @@
         <div class="refs">
             {% for ref in project.refs %}
                 <a href="{{ ref.ref}}" target="_blank">
-                    <img src="{{ url_for('static', filename=ref.img_path) }}" alt="">
+                    <img src="{{ url_for('static', filename=ref.img) }}" alt="">
                 </a>
             {% endfor %}
         </div>
@@ -25,17 +25,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
 </head>
 
 {% endblock %}
 
-{% block body %}
+
 <body>
+{% block body %}
     <header>
         <ul class="sections">
-        <li><a class="sect-item" href="{{ url_for('main_page') }}"> Home </a></li>
-        <li><a class="sect-item" href="{{ url_for('project_list')}}"> Projects </a></li>
+        <li class="sect-item"><a  href="{{ url_for('main_page') }}"> Home </a></li>
+        <li class="sect-item"><a  href="{{ url_for('project_list')}}"> Projects </a></li>
         <li><div>Skills</div></li>
     </ul>
     </header>
@@ -73,8 +74,9 @@
 
     {% endblock intro %}
 
-    {% block content %}
     <div class="content">
+    {% block content %}
+
         <p>Hello, dear friend!
             I'm glad to see you on my personal website</p>
 
@@ -91,8 +93,9 @@
                 {% endfor %}
             </li>
         </ul>
-    </div>
+
     {% endblock content %}
+    </div>
 
     {% block footer %}
     <footer>
@@ -100,9 +103,7 @@
     </footer>
     {% endblock footer %}
 
-    
-
+{% endblock body %}
 </body>
 
 </html>
-{% endblock body %}

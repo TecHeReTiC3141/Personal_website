@@ -6,3 +6,17 @@
     </h1>
 
 {% endblock %}
+
+{% block content %}
+    <ul class="projects">
+        <li>
+            {% for row in projects %}
+                <div class="projects-row">
+                    {% for proj in row %}
+                        {{ display_project(proj) }}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </li>
+    </ul>
+{% endblock %}

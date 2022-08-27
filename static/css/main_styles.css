@@ -29,7 +29,7 @@ ul.sections {
 }
 
 .sect-item {
-    padding: 5px;
+    padding-right: 0.25em;
     border-right: 5px solid rgb(173, 118, 46);
 }
 
@@ -37,10 +37,10 @@ ul.sections li {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2em;
     margin: 5px;
-    padding: 0 .3em;
+
 }
 
-ul.sections li:hover {
+ul.sections li:hover a {
     background-color: chocolate;
     position: relative;
     bottom: 5px;
@@ -174,6 +174,7 @@ div.project div.image {
 
 div.project div.image img {
     width: 25em;
+    height: 15em;
     border-radius: 2em;
 }
 
@@ -182,13 +183,24 @@ div.project .description {
 
 }
 
+div.project:hover div.image {
+    background-color: burlywood;
+    border-radius: 2em;
+    border: 2px solid #a64717;
+}
+
+div.project:hover div.image img {
+    width: 21em;
+    margin: 1em 2em;
+}
+
 div.project:hover .description {
     display: block;
     position: absolute;
     bottom: 0;
     width: 90%;
     text-align: center;
-    background-color: burlywood;
+    background-color: #c28f4d;
     border-radius: 1em;
     padding: .5em;
     margin-bottom: 0;
@@ -200,5 +212,5 @@ div.project .caption {
 }
 
 footer h4 {
-    color: beige;
+    color: whitesmoke;
 }

@@ -1,0 +1,204 @@
+html, body {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(236, 204, 148);
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+ul.sections {
+    list-style-type: none;
+    background-color: burlywood;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.sect-item {
+    padding: 5px;
+    border-right: 5px solid rgb(173, 118, 46);
+}
+
+ul.sections li {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2em;
+    margin: 5px;
+    padding: 0 .3em;
+}
+
+ul.sections li:hover {
+    background-color: chocolate;
+    position: relative;
+    bottom: 5px;
+}
+
+h1.greeting {
+    background-color: burlywood;
+    padding: 0.25em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 3em;
+    text-decoration: underline;
+    margin-bottom: 0.25em;
+}
+
+div.intro {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: bisque;
+    background-image: url(../images/background_sky.jpg);
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+div.descr {
+    background-color: beige;
+    width: 60%;
+    height: 60%;
+    border-radius: 0.5em;
+    border: 3px solid grey;
+    margin-bottom: 2em;
+   
+    display: flex;
+    box-shadow: 5px 5px 10px black; 
+}
+
+div.descr > div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+div.descr div.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+    font-size: 2em;
+}
+
+div.features > p {
+    margin: 0;
+}
+
+div.descr > img {
+    float: left;
+    height: 90%;
+    margin: 0.5em;
+    border-radius: 1em;
+    position: relative;
+}
+
+div.content {
+    height: 90%;
+    width: 60%;
+    background-color: burlywood;
+    border: 4px solid rgb(199, 133, 48);
+    padding: 2em;
+    border-radius: 10px 100px / 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+div.content > p {
+    font-size: 1.5em;
+    margin: 0.5em;
+}
+
+div.refs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+div.refs img {
+    width: 50px;
+    border-radius: 2em;
+    margin: 0 0.5em;
+}
+
+div.refs img:hover {
+    position: relative;
+    bottom: 5px;
+    /*box-shadow: 5px 5px 10px black;*/
+}
+
+
+div.content > ul.projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+ul.projects li > div.projects-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+}
+
+div.content div.project {
+    background-color: palegoldenrod;
+    border-radius: 2em;
+    border: 3px solid grey;
+    position: relative;
+    margin: 1em 2em;
+}
+
+div.project div.image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+div.project div.image img {
+    width: 25em;
+    border-radius: 2em;
+}
+
+div.project .description {
+    display: none;
+
+}
+
+div.project:hover .description {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    text-align: center;
+    background-color: burlywood;
+    border-radius: 1em;
+    padding: .5em;
+    margin-bottom: 0;
+} 
+
+div.project .caption {
+    width: 100%;
+    text-align: center;
+}
+
+footer h4 {
+    color: beige;
+}

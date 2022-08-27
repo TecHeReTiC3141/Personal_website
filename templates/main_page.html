@@ -1,0 +1,108 @@
+{% macro display_project(project) %}
+    <div class="project">
+        <div class="image">
+            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title | capitalize}}">
+            <p class="description">{{ project.descr }}</p>
+        </div>
+        <h2 class="caption">{{ project.title | capitalize}}</h2>
+        <div class="refs">
+            {% for ref in project.refs %}
+                <a href="{{ ref.ref}}" target="_blank">
+                    <img src="{{ url_for('static', filename=ref.img_path) }}" alt="">
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+{% endblock %}
+
+{% block body %}
+<body>
+    <header>
+        <ul class="sections">
+        <li><a class="sect-item" href="{{ url_for('main_page') }}"> Home </a></li>
+        <li><a class="sect-item" href="{{ url_for('project_list')}}"> Projects </a></li>
+        <li><div>Skills</div></li>
+    </ul>
+    </header>
+    
+    {% block intro %}
+    <div class="intro">
+         <h1 class="greeting">
+            TecHeReTiC
+        </h1>
+
+        <div class="descr">
+            <img src="{{ url_for('static', filename='images/Deimos.png') }}" alt="avatar">
+            <div>
+                <div class="features">
+                    <p>Python developer from Russia</p>
+                    <p>ML and DS enthusiast</p>
+                    <p>Game maker, competitive programmer</p>
+                    <br>
+                    <div class="refs">
+                        <a href="https://github.com/TecHeReTiC3141" target="_blank">
+                            <img src="{{ url_for('static', filename='images/github.png') }}" alt="">
+                        </a>
+                        <a href="https://www.kaggle.com/timkiryachek" target="_blank">
+                            <img src="{{ url_for('static', filename='images/kaggle.png') }}" alt="">
+                        </a>
+                        <a href="https://t.me/TecHeReTiC" target="_blank">
+                            <img src="{{ url_for('static', filename='images/telegram.png') }}" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {% endblock intro %}
+
+    {% block content %}
+    <div class="content">
+        <p>Hello, dear friend!
+            I'm glad to see you on my personal website</p>
+
+        <p>Here you can look at my projects, 
+            take a glance at my skills and contact me it you want</p>
+        <ul class="projects">
+            <li>
+                {% for row in projects %}
+                    <div class="projects-row">
+                        {% for proj in row %}
+                            {{ display_project(proj) }}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </li>
+        </ul>
+    </div>
+    {% endblock content %}
+
+    {% block footer %}
+    <footer>
+        <h4>TecHeReTiC</h4>
+    </footer>
+    {% endblock footer %}
+
+    
+
+</body>
+
+</html>
+{% endblock body %}

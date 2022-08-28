@@ -9,7 +9,7 @@ main_projects = [
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
                    'img': '/images/github.png'}]},
         {'title': 'Dungetic', 'image': '/images/dungetic.png',
-         'descr': 'Rogue-like game',
+         'descr': 'Rogue-like game with elements of RPG',
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/Dungetic',
                    'img': '/images/github.png'}]}
     ],
@@ -22,7 +22,7 @@ all_projects = [
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
                    'img': '/images/github.png'}]},
         {'title': 'Dungetic', 'image': '/images/dungetic.png',
-         'descr': 'Rogue-like game',
+         'descr': 'Rogue-like game with elements of RPG',
          'refs': [{'ref': 'https://github.com/TecHeReTiC3141/Dungetic',
                    'img': '/images/github.png'}]},
         {'title': 'Platformetic', 'image': '/images/platformetic.png',

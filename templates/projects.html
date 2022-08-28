@@ -1,5 +1,10 @@
 {% extends 'main_page.html' %}
 
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/projects_styles.css') }}">
+{% endblock %}
+
 {% block intro %}
     <h1 class="greeting">
         Projects

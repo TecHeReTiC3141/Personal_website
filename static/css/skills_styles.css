@@ -1,0 +1,25 @@
+div.content {
+    background-color: beige;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 2em;
+    width: 60%;
+}
+
+div.content > div.column {
+    display: flex;
+    flex-direction: column;
+
+}
+
+div.column > div.row {
+    margin-bottom: 2em;
+}
+
+.caption {
+    font-size: 1.1em;
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid gray;
+}

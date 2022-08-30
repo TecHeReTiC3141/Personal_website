@@ -50,13 +50,17 @@ all_projects = [
 
 
 @app.route('/')
-def main_page():  # put application's code here
+def main_page():
     return render_template('main_page.html', title='Main page', projects=main_projects)
 
 
 @app.route('/projects')
-def project_list():  # put application's code here
+def project_list():
     return render_template('projects.html', title='Main page', projects=all_projects)
+
+@app.route('/skills')
+def skills():
+    return render_template('skills.html', title='Skills')
 
 
 if __name__ == '__main__':

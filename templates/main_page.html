@@ -24,7 +24,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <title>{{ title }}</title>
     {% block css %}
@@ -40,7 +39,7 @@
         <ul class="sections">
             <li class="sect-item"><a  href="{{ url_for('main_page') }}"> Home </a></li>
             <li class="sect-item"><a  href="{{ url_for('project_list')}}"> Projects </a></li>
-            <li><div>Skills</div></li>
+            <li><a href="{{ url_for('skills')}}"> Skills </a></li>
         </ul>
     </header>
     
@@ -51,7 +50,7 @@
         </h1>
 
         <div class="descr">
-            <img src="{{ url_for('static', filename='images/Deimos.png') }}" alt="avatar">
+            <img src="{{ url_for('static', filename='images/deimos.png') }}" alt="avatar">
             <div>
                 <div class="features">
                     <p>Python developer from Russia</p>
@@ -102,7 +101,7 @@
 
     {% block footer %}
     <footer>
-        <h4>TecHeReTiC</h4>
+        <h4>&copy;TecHeReTiC</h4>
     </footer>
     {% endblock footer %}
 

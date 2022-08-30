@@ -1,0 +1,73 @@
+{% extends 'main_page.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skills_styles.css') }}">
+{% endblock %}
+
+{% block intro %}
+    <div class="intro">
+        <h1 class="greeting">
+            Skills
+        </h1>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <div class="column">
+        <div class="row">
+            <h2 class="caption">Preferred languages</h2>
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="row">
+            <h2 class="caption">Education</h2>
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="column">
+        <div class="row">
+            <h2 class="caption">Preferred languages</h2>
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="row">
+            <h2 class="caption">Preferred languages</h2>
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+     <div class="column">
+        <div class="row">
+            <h2 class="caption">Preferred languages</h2>
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="row">
+            <h2 class="caption">Preferred languages</h2>
+            <ul>
+                <li>Python</li>
+                <li>C++</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

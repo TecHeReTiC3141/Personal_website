@@ -41,7 +41,11 @@ ul.sections li {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2em;
     margin: 5px;
+}
 
+ul.sections li a {
+    color: #000000;
+    text-decoration: none;
 }
 
 ul.sections li:hover a {
@@ -220,4 +224,8 @@ div.project .caption {
 
 footer h4 {
     color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
 }

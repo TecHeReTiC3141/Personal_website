@@ -4,7 +4,7 @@
             <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title | capitalize}}">
             <p class="description">{{ project.descr }}</p>
         </div>
-        <h2 class="caption">{{ project.title | capitalize}}</h2>
+        <a href="{{ url_for('project_page', name=(project.title | lower)) }}"><h2 class="caption">{{ project.title | capitalize}}</h2></a>
         <div class="refs">
             {% for ref in project.refs %}
                 <a href="{{ ref.ref}}" target="_blank">

@@ -1,18 +1,22 @@
 {% macro display_project(project) %}
-    <div class="project">
-        <div class="image">
-            <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title | capitalize}}">
-            <p class="description">{{ project.descr }}</p>
+    <a href="{{ url_for('project_page', project_name=project.title) }}">
+        <div class="project">
+            <div class="image">
+                <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title | capitalize}}">
+                <p class="description">{{ project.descr }}</p>
+            </div>
+            <h2 class="caption">{{ project.title | capitalize}}</h2>
+            <div class="refs">
+                {% for ref in project.refs %}
+                    <a href="{{ ref.ref}}" target="_blank">
+                        <img src="{{ url_for('static', filename=ref.img) }}" alt="">
+                    </a>
+                {% endfor %}
+            </div>
         </div>
-        <h2 class="caption">{{ project.title | capitalize}}</h2>
-        <div class="refs">
-            {% for ref in project.refs %}
-                <a href="{{ ref.ref}}" target="_blank">
-                    <img src="{{ url_for('static', filename=ref.img) }}" alt="">
-                </a>
-            {% endfor %}
-        </div>
-    </div>
+    </a>
+
+
 {% endmacro %}
 
 <!DOCTYPE html>

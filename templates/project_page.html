@@ -1,9 +1,6 @@
-{% extends 'main_page.html' %}
-
-{%  block intro %}
-    <div class="intro">
-        <h1 class="greeting">
-            {{ project.name }}
-        </h1>
-    </div>
+{% extends 'projects_page.html' %}
+{% block intro %}
+    <h1 class="greeting">
+        {{ project.description }}
+    </h1>
 {% endblock %}

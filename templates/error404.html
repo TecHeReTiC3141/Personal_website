@@ -1,0 +1,20 @@
+{% extends 'main_page.html' %}
+{% block css %}
+    {{ super() }}
+    <style>
+    div.content {
+        width: 100%;
+        margin-top: 10em;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    </style>
+{% endblock %}
+{% block intro %}
+
+{% endblock %}
+
+{% block content %}
+    <h1>This page doesn't exist. Please return to <a href="{{ url_for('main_page') }}">main_page</a></h1>
+{% endblock %}

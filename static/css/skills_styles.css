@@ -3,22 +3,25 @@ div.content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    font-size: 2em;
-    width: 60%;
+    align-items: flex-start;
+    font-size: 1.5em;
+    width: 50%;
 }
 
 div.content > div.column {
     display: flex;
     flex-direction: column;
-
+    height: 100%;
 }
 
 div.column > div.row {
     margin-bottom: 2em;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .caption {
-    font-size: 1.1em;
+    font-size: 1.25em;
     text-align: center;
     width: 100%;
     border-bottom: 2px solid gray;

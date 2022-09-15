@@ -1,4 +1,6 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
+from pathlib import Path
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -48,9 +50,12 @@ all_projects = [
 
 ]
 
-projects_descriptions = {
-    'Dungetic': {}
-}
+project_descr = {}
+descriptions = Path('descriptions')
+for file in descriptions.glob('*.html'):
+    with open(file) as f:
+        project_descr[file.stem] = f.read().strip()
+pprint(project_descr)
 
 
 @app.route('/')
@@ -60,25 +65,24 @@ def main_page():
 
 @app.route('/projects')
 def project_list():
-    return render_template('projects.html', title='Main page', projects=all_projects)
+    return render_template('projects_page.html', title='Main page', projects=all_projects)
 
-@app.route('/projects/<project_name>')
-def project_page(project_name):
-    if project_name not in projects_descriptions:
+
+@app.route('/projects/<name>')
+def project_page(name):
+    if name not in project_descr:
         abort(404)
-    return render_template('skills.html', title=project_name,
-                           project=projects_descriptions[project_name])
+    return render_template(f'projects_page.html', )
+
 
 @app.route('/skills')
 def skills():
     return render_template('skills.html', title='Skills')
 
+
 @app.errorhandler(404)
 def error404(error):
-    return render_template('404.html')
-
-
-
+    return render_template('error404.html')
 
 
 if __name__ == '__main__':

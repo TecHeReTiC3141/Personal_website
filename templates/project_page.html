@@ -12,6 +12,7 @@
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/project_styles.css') }}">
+
 {% endblock %}
 
 {% block intro %}
@@ -23,8 +24,13 @@
 
 {% block content %}
     <div class="description">
-        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
         {{ project.description | safe}}
+    </div>
+    <div class="images">
+        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
+        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
+        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
+
     </div>
 
 

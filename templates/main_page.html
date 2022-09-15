@@ -1,5 +1,5 @@
 {% macro display_project(project) %}
-    <a href="{{ url_for('project_page', project_name=project.title) }}">
+    <a href="{{ url_for('project_page', name=project.title) }}">
         <div class="project">
             <div class="image">
                 <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.title | capitalize}}">
@@ -30,6 +30,11 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <title>{{ title }}</title>
+    {% block style %}
+        <style>
+
+        </style>
+    {% endblock %}
     {% block css %}
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
     {% endblock css %}
@@ -46,9 +51,9 @@
             <li><a href="{{ url_for('skills')}}"> Skills </a></li>
         </ul>
     </header>
-    
-    {% block intro %}
+
     <div class="intro">
+    {% block intro %}
          <h1 class="greeting">
             TecHeReTiC
         </h1>
@@ -75,10 +80,8 @@
                 </div>
             </div>
         </div>
-
-    </div>
-
     {% endblock intro %}
+    </div>
 
     <div class="content">
     {% block content %}

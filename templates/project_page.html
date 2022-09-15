@@ -1,6 +1,32 @@
-{% extends 'projects_page.html' %}
+{% extends 'main_page.html' %}
+
+{% block style %}
+    <style>
+        div.intro {
+            background-color: black;
+            background-image: none;
+        }
+    </style>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/project_styles.css') }}">
+{% endblock %}
+
 {% block intro %}
     <h1 class="greeting">
-        {{ project.description }}
+        {{ project.name | capitalize }}
     </h1>
+{% endblock %}
+
+
+{% block content %}
+    <div class="description">
+        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
+        {{ project.description | safe}}
+    </div>
+
+
+
 {% endblock %}

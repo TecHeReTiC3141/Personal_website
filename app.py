@@ -54,7 +54,11 @@ project_descr = {}
 descriptions = Path('descriptions')
 for file in descriptions.glob('*.html'):
     with open(file) as f:
-        project_descr[file.stem] = f.read().strip()
+        project_descr[file.stem] = {
+            'description': f.read().strip(),
+            'img': f'/images/{file.stem}.png',
+            'name': file.stem,
+        }
 pprint(project_descr)
 
 
@@ -69,10 +73,11 @@ def project_list():
 
 
 @app.route('/projects/<name>')
-def project_page(name):
+def project_page(name: str):
+    name = name.lower()
     if name not in project_descr:
         abort(404)
-    return render_template(f'projects_page.html', )
+    return render_template(f'project_page.html', project=project_descr[name])
 
 
 @app.route('/skills')

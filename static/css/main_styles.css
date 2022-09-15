@@ -4,7 +4,7 @@ html, body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(236, 204, 148);
+    background-color: rgb(201, 225, 225);
     font-family: 'Ubuntu', sans-serif;
     margin: 1em 0 0;
     font-size: 0.7vw;
@@ -173,12 +173,16 @@ div.content div.project {
     border: 3px solid grey;
     position: relative;
     margin: 1em 2em;
+    text-decoration: none;
+    color: black;
 }
 
 div.project div.image {
     position: relative;
     display: flex;
     justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 
 div.project div.image img {

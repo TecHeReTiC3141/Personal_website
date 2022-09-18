@@ -1,8 +1,10 @@
-from flask import render_template, abort, request, g
-from scripts.DB import DataBase
+from flask import render_template, abort,\
+    request, g, flash, redirect, url_for
+from scripts.DB import *
+from scripts.Forms import *
+
 from app import *
 
-app = Flask(__name__)
 dbase: DataBase = None
 
 main_projects = [
@@ -82,15 +84,24 @@ def main_page():
 
 @app.route('/projects')
 def project_list():
-    return render_template('projects_page.html', title='Main page', projects=all_projects)
+    return render_template('projects_page.html', title='Projects', projects=all_projects)
 
 
-@app.route('/projects/<name>')
+@app.route('/projects/<name>', methods=['POST', 'GET'])
 def project_page(name: str):
     name = name.lower()
     if name not in project_descr:
         abort(404)
-    return render_template(f'project_page.html', project=project_descr[name])
+    form = CommentForm()
+    if form.validate_on_submit():
+        print('valid')
+        user_name, mark, text = form.name.data, form.mark.data, form.text.data
+        res = dbase.add_comment(name.capitalize(), user_name, mark, text)
+        flash(res, category='success' if res == 'Successfully added' else 'error')
+        return redirect(url_for('project_page', name=name))
+
+    return render_template('project_page.html', project=project_descr[name],
+                           form=form, title=name.capitalize())
 
 
 @app.route('/skills')

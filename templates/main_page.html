@@ -15,8 +15,21 @@
             </div>
         </div>
     </a>
+{% endmacro %}
 
-
+{% macro display_form(form) %}
+    <h2>{{ form.label }}</h2>
+    {{ form.hidden_tag() }}
+    {% for field in form if field.name not in ['csrf_token', 'submit'] %}
+        {% if field.errors %}
+            <p>{{ field.label() }} {{ field(class='invalid') }}<span>{% for err in field.errors %}
+                {{ err }}
+            {% endfor %}</span></p>
+        {% else %}
+            <p>{{ field.label() }} {{ field() }}</p>
+        {% endif %}
+    {% endfor %}
+    <p>{{ form.submit }}</p>
 {% endmacro %}
 
 <!DOCTYPE html>

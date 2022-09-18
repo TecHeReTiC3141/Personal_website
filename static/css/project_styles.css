@@ -42,3 +42,11 @@ div.intro > img {
     width: 90%;
     padding: 0 1em;
 }
+
+div.comments form {
+    width: 70%;
+    padding-left: 1em;
+    background-color: beige;
+    border: 3px saddlebrown solid;
+    border-radius: 1em;
+}

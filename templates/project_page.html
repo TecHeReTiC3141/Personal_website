@@ -25,7 +25,13 @@
 {% block content %}
     <div class="description">
         {{ project.description | safe}}
-        <h2>Comments</h2>
+        <div class="comments">
+            <h2>Comments</h2>
+            <form action='' method="post" class="login-form">
+                {{ display_form(form) }}
+            </form>
+        </div>
+
     </div>
     <div class="images">
         <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">

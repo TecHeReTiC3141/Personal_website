@@ -93,15 +93,16 @@ def project_page(name: str):
     if name not in project_descr:
         abort(404)
     form = CommentForm()
+    comments = dbase.get_comments(name.capitalize())
     if form.validate_on_submit():
         print('valid')
         user_name, mark, text = form.name.data, form.mark.data, form.text.data
         res = dbase.add_comment(name.capitalize(), user_name, mark, text)
         flash(res, category='success' if res == 'Successfully added' else 'error')
-        return redirect(url_for('project_page', name=name))
+        return redirect(url_for('project_page', name=name, comments=comments))
 
     return render_template('project_page.html', project=project_descr[name],
-                           form=form, title=name.capitalize())
+                           form=form, title=name.capitalize(), comments=comments)
 
 
 @app.route('/skills')

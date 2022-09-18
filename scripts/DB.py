@@ -42,10 +42,12 @@ class DataBase:
         get_id = '''SELECT id FROM projects
                     WHERE name = (?)'''
         proj_id = self.getData(get_id, (project_name,), 'one')[0]
+        time_posted = round(time())
+        time_format = strftime('%d.%m.%Y at %H:%M', gmtime(time_posted))
         req = '''INSERT INTO comments (project, user_name, mark, text, date)
                 VALUES (?, ?, ?, ?, ?)'''
 
-        return self.addData(req, (proj_id, user_name, mark, text, time()))
+        return self.addData(req, (proj_id, user_name, mark, text, time_format))
 
     def get_comments(self, project_name):
 

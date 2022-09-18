@@ -2,10 +2,10 @@
 
 {% block style %}
     <style>
-        div.intro {
-            background-color: black;
-            background-image: none;
-        }
+        {#body {#}
+        {#    background-image: url(../static/{{ project.img }});#}
+        {#}#}
+
     </style>
 {% endblock %}
 
@@ -15,24 +15,24 @@
 
 {% endblock %}
 
-{% block intro %}
-    <h1 class="greeting">
-        {{ project.name | capitalize }}
-    </h1>
-{% endblock %}
+<div class="intro" style="background-image: url(../static/{{ project.img }})">
 
+    {% block intro %}
+        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
+    {% endblock %}
+</div>
 
 {% block content %}
     <div class="description">
         {{ project.description | safe}}
+        <h2>Comments</h2>
     </div>
     <div class="images">
         <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
         <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
         <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
-
+        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
+        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
     </div>
-
-
 
 {% endblock %}

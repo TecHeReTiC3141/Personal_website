@@ -1,94 +1,18 @@
-from flask import Flask, render_template, abort, request
+import sqlite3
+
+from flask import Flask
 from pathlib import Path
-from pprint import pprint
+
+DATABASE = 'database.db'
+SECRET_KEY = 'e7463a675de3b7453990742469ba869b57086d6e'
+MAX_CONTENT_SIZE = 1024 * 1024
 
 app = Flask(__name__)
-
-main_projects = [
-    [
-        {'title': 'Platformetic', 'image': '/images/platformetic.png',
-         'descr': 'Simple platformer with elements of bullet hell',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                   'img': '/images/github.png'}]},
-        {'title': 'Dungetic', 'image': '/images/dungetic.png',
-         'descr': 'Rogue-like game with elements of RPG',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/Dungetic',
-                   'img': '/images/github.png'}]}
-    ],
-]
-
-all_projects = [
-    [
-        {'title': 'Platformetic', 'image': '/images/platformetic.png',
-         'descr': 'Simple platformer with elements of bullet hell',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                   'img': '/images/github.png'}]},
-        {'title': 'Dungetic', 'image': '/images/dungetic.png',
-         'descr': 'Rogue-like game with elements of RPG',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/Dungetic',
-                   'img': '/images/github.png'}]},
-        {'title': 'Platformetic', 'image': '/images/platformetic.png',
-         'descr': 'Simple platformer with elements of bullet hell',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                   'img': '/images/github.png'}]}
-    ],
-
-    [
-        {'title': 'Platformetic', 'image': '/images/platformetic.png',
-         'descr': 'Simple platformer with elements of bullet hell',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                   'img': '/images/github.png'}]},
-        {'title': 'Platformetic', 'image': '/images/platformetic.png',
-         'descr': 'Simple platformer with elements of bullet hell',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                   'img': '/images/github.png'}]},
-        {'title': 'Platformetic', 'image': '/images/platformetic.png',
-         'descr': 'Simple platformer with elements of bullet hell',
-         'refs': [{'ref': 'https://github.com/TecHeReTiC3141/PygamePlatformer',
-                   'img': '/images/github.png'}]}
-    ],
-
-]
-
-project_descr = {}
-descriptions = Path('descriptions')
-for file in descriptions.glob('*.html'):
-    with open(file) as f:
-        project_descr[file.stem] = {
-            'description': f.read().strip(),
-            'img': f'/images/{file.stem}.png',
-            'name': file.stem,
-        }
-pprint(project_descr)
+app.config.from_object(__name__)
+app.config.update({'DATABASE': Path(app.root_path) / DATABASE})
 
 
-@app.route('/')
-def main_page():
-    return render_template('main_page.html', title='Main page', projects=main_projects)
-
-
-@app.route('/projects')
-def project_list():
-    return render_template('projects_page.html', title='Main page', projects=all_projects)
-
-
-@app.route('/projects/<name>')
-def project_page(name: str):
-    name = name.lower()
-    if name not in project_descr:
-        abort(404)
-    return render_template(f'project_page.html', project=project_descr[name])
-
-
-@app.route('/skills')
-def skills():
-    return render_template('skills.html', title='Skills')
-
-
-@app.errorhandler(404)
-def error404(error):
-    return render_template('error404.html')
-
-
-if __name__ == '__main__':
-    app.run()
+def connect_db() -> sqlite3.Connection:
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    return conn

@@ -8,11 +8,12 @@ div.images {
 
 div.images > img {
     width: 80%;
-    margin: 1em 0;
+    margin: .5em 0;
 }
 
 div.content {
-    padding: 2em 1em;
+    margin-top: 1em;
+    padding: 2em 3em;
     padding-bottom: 5em;
     display: flex;
     flex-direction: row;
@@ -24,6 +25,20 @@ div.content > div.description {
     width: 95%;
 }
 
-div.content p {
+div.content {
     font-size: 1.25em;
+}
+
+div.intro {
+    width: 60%;
+    height: 20%;
+    background-image: none;
+    background-color: burlywood;
+    margin: 0;
+    margin-top: 2em;
+}
+
+div.intro > img {
+    width: 90%;
+    padding: 0 1em;
 }

@@ -63,6 +63,9 @@ for file in descriptions.glob('*.html'):
             'img': f'/images/{file.stem}.png',
             'name': file.stem,
         }
+    project_descr[file.stem]['images'] = [f'/images/{file.stem}/{i.name}'
+                                          for i in Path(f'static/images/{file.stem}').glob('*.png')]
+    print(project_descr[file.stem]['images'])
 
 
 def get_db() -> sqlite3.Connection:

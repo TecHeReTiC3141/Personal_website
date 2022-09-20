@@ -4,6 +4,11 @@ div.images {
     justify-content: space-between;
     align-items: center;
     width: 60%;
+    background-color: #e3994f;
+    border-radius: 1em;
+    border: 2px saddlebrown solid;
+    margin-left: 1em;
+    margin-top: 1em
 }
 
 div.images > img {
@@ -23,6 +28,16 @@ div.content {
 
 div.content > div.description {
     width: 95%;
+
+}
+
+div.description .video {
+    margin: 1em 0;
+    border-radius: 0.5em;
+}
+
+div.description > div.project-descr {
+    font-size: 1.25em;
 }
 
 div.content {
@@ -43,6 +58,13 @@ div.intro > img {
     padding: 0 1em;
 }
 
+div.comments {
+    background-color: #b4915d;
+    padding: 1em;
+    border-radius: 1em;
+
+}
+
 div.comments form {
     width: 70%;
     padding-left: 1em;
@@ -52,6 +74,7 @@ div.comments form {
     font-size: 80%;
 }
 
+
 div.comment {
     background-color: whitesmoke;
     border: 2px saddlebrown solid;
@@ -59,18 +82,30 @@ div.comment {
     padding: 0.5em;
     padding-top: 0;
     margin-top: 2em;
+    box-shadow: 5px 5px 10px black;
+
 }
 
-div.comment > .user_name {
-    background-color: black;
-    color: whitesmoke;
+div.comment > div.header {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 2px darkgray solid;
+    margin-bottom: 1em;
+    margin-top: .25em;
+}
+
+div.comment .user_name {
+
+    color: cadetblue;
     margin: 0.05em 0.1em;
     margin-bottom: 0.5em;
-    padding-left: 1em;
+    padding-left: .25em;
 }
+
 
 div.comment > article {
 }
+
 
 div.comment .date {
     font-size: 80%;

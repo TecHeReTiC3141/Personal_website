@@ -1,13 +1,19 @@
 {% extends 'main_page.html' %}
 
-{% block style %}
-    <style>
-        {#body {#}
-        {#    background-image: url(../static/{{ project.img }});#}
-        {#}#}
+{% macro display_comment(comm) %}
+    <div class="comment">
+        <div class="header">
+            <img src="{{ url_for('static', filename='images/default_avatar.png') }}"
+                 alt="avatar" height="30">
+            <h4 class="user_name">
+                {{ comm.user_name }}, <span class="date">{{ comm.date }}</span>
+            </h4>
 
-    </style>
-{% endblock %}
+        </div>
+
+        <article>{{ comm.text | safe }}</article>
+    </div>
+{% endmacro %}
 
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main_styles.css') }}">
@@ -24,7 +30,14 @@
 
 {% block content %}
     <div class="description">
-        {{ project.description | safe}}
+        <div class="project-descr">
+            {{ project.description | safe}}
+        </div>
+
+        <iframe width="640" height="480" class="video"
+        src="https://www.youtube.com/embed/WsI7-OZvAjI">
+        </iframe>
+
         <div class="comments">
             <h2>Comments</h2>
             <form action='' method="post" class="login-form">
@@ -32,22 +45,16 @@
             </form>
             <hr>
             {% for comm in comments %}
-                <div class="comment">
-                    <h4 class="user_name">
-                        {{ comm.user_name }}, <span class="date">{{ comm.date }}</span>
-                    </h4>
-                    <article>{{ comm.text }}</article>
-                </div>
+                {{ display_comment(comm) }}
             {% endfor %}
         </div>
 
     </div>
     <div class="images">
-        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
-        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
-        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
-        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
-        <img src="{{ url_for('static', filename=project.img) }}" alt="{{ project.name }}" class="big">
+        <h2><u>Screenshots</u></h2>
+        {% for img in project.images %}
+            <img src="{{ url_for('static', filename=img) }}" alt="{{ project.name }}" class="big">
+        {% endfor %}
     </div>
 
 {% endblock %}
